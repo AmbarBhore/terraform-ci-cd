@@ -21,7 +21,7 @@ pipeline {
 			steps {
 				dir('s3-bucket') {
 				   sh '''
-					'terraform init'
+					terraform init
 				   '''
 				 }
 			}
