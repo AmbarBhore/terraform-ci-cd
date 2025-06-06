@@ -19,7 +19,7 @@ pipeline {
 		}
 		stage('Terraform Init') {
 			steps {
-				dir('s3-bucket') {
+				dir('modules\s3-bucket') {
 				   sh '''
 					terraform init
 				   '''
@@ -33,7 +33,7 @@ pipeline {
 		}	
 		stage('Terraform Plan') {
 			steps {
-			       dir('s3-bucket') {
+			       dir('modules\s3-bucket') {
 				     withCredentials([usernamePassword(credentialsId: 'aw-credenials', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY')]) {
 					sh '''	
 				     	  export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
@@ -46,7 +46,7 @@ pipeline {
 		}	
 		stage('Terraform apply') {
 			steps {
-			      dir('s3-bucket') {
+			      dir('modules\s3-bucket') {
 				    withCredentials([usernamePassword(credentialsId: 'aw-credenials', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY')]) {
 				       sh '''
 					  export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
