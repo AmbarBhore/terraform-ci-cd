@@ -43,6 +43,13 @@ pipeline {
 				      }
 			         }
 			  }
-		}				
+		}	
+		stage('Terraform apply') {
+			steps {
+			      dir('s3-bucket') {
+				   sh 'terraform apply -f auto-approve'
+			      }
+			}
+		}			
 	}
 }
