@@ -8,7 +8,7 @@ pipeline {
 			steps {
 				withCredentials([usernamePassword(credentialsId: 'aw-credenials', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY')]) {
 					sh '''
-					    export AWS_ACCESSiiEY_ID=$AWS_ACCESS_KEY_ID
+					    export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
 					    export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
 					
 					    aws s3 ls --region $AWS_REGION
@@ -31,5 +31,14 @@ pipeline {
 				sh 'terraform validate'
 			}
 		}	
+		stage('Terraform Plan') {
+			steps {
+				sh '''	
+				     export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
+				     export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
+				     terraform plan -out=tfplan
+				'''
+			}
+		}				
 	}
 }	
