@@ -19,7 +19,11 @@ pipeline {
 		}
 		stage('Terraform Init') {
 			steps {
-				sh 'terraform init'
+				dir('s3-bucket') {
+				   sh '''
+					'terraform init'
+				   '''
+				 }
 			}
 		}
 	}
