@@ -2,7 +2,7 @@ pipeline {
 	agent any
 	environment {
 	     AWS_REGION = "ap-south-1"
-}
+	}
 	stages {
 		stage('use aws credentials') {
 			steps {
@@ -45,3 +45,4 @@ pipeline {
 			  }
 		}				
 	}
+}
