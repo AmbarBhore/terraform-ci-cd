@@ -3,12 +3,5 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "example" {
-	bucket = "ambar-ci-cd-bucket"
-
-	tags = {
-		env = "devlopment"
-		reson = "loging"
-		Name = "CI/CD Bucket"
-		Owner = "Devops"
-	}
+	bucket = "ambar-ci-cd-bucket12"
 }
