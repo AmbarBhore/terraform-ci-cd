@@ -19,11 +19,8 @@ pipeline {
 		}
 		stage('Terraform Init') {
 			steps {
-				dir('modules/s3-bucket') {
-				   sh '''
-					terraform init
-				   '''
-				 }
+				   sh terraform init
+			      }
 			}
 		}
 		stage('Terraform Validate') {
