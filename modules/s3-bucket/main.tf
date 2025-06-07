@@ -6,6 +6,8 @@ resource "aws_s3_bucket" "example" {
 	bucket = "ambar-ci-cd-bucket"
 
 	tags = {
+		env = "devlopment"
+		reson = "loging"
 		Name = "CI/CD Bucket"
 		Owner = "Devops"
 	}
