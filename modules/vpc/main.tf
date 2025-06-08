@@ -6,8 +6,8 @@ resource "aws_vpc" "terraform-vpc" {
 }
 
 resource "aws_internet_gateway" "igw" {
-    vpc_id = "aws_vpc.terraform-vpc.vpc_id 
+    vpc_id = "aws_vpc.terraform-vpc.vpc_id"
     tags = {
-        Name = "terraform-IGW"
+        Name = "terraform-IGWw"
     }
 }
