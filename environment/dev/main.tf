@@ -1,5 +1,6 @@
 module "iam" {
         source = "../../modules/iam-user"
+        user_name = var.user_name
 }
 
 module "s3" {
